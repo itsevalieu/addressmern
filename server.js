@@ -47,8 +47,14 @@ app.get("/api", function(request, response){
 	});
 });
 
-app.put("/history", function(request, response){
-	History.update({}).exec(function(error, doc){
+app.put("/api", function(request, response){
+	var searchTerm = request.body.searchTerm;
+	var timeStamp = Date.now();
+	
+	History.update({
+		searchTerm: searchTerm,
+		timeStamp: timeStamp	
+	}).exec(function(error, doc){
 		if (error){
 			console.log(error);
 			response.send("An error has occured.");
