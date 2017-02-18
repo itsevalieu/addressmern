@@ -47,11 +47,11 @@ app.get("/api", function(request, response){
 	});
 });
 
-app.put("/api", function(request, response){
+app.post("/api", function(request, response){
 	var searchTerm = request.body.searchTerm;
 	var timeStamp = Date.now();
 	
-	History.update({
+	History.post({
 		searchTerm: searchTerm,
 		timeStamp: timeStamp	
 	}).exec(function(error, doc){
