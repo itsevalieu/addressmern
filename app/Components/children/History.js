@@ -2,6 +2,10 @@
 var React = require("react");
 
 var History = React.createClass({
+	getInitialSate: function() {
+		return { dateTime: };
+	},
+
 	render: function() {
 		return (
 			<div className="panel panel-default">
@@ -10,6 +14,10 @@ var History = React.createClass({
 				</div>
 				<div className="panel-body text-center">
 					<p>Search History Shows Here</p>
+					<span>
+						<p>{this.props.searchTerm}</p>
+						{/*<p>{this.state.dateTime}</p>*/}
+					</span>
 				</div>
 			</div>
 		);

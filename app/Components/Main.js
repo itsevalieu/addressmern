@@ -13,7 +13,7 @@ var Main = React.createClass({
 
   // Here we set a generic state associated with the number of clicks
   getInitialState: function() {
-    return { searchTerm: "", results: "" };
+    return { searchTerm: "", results: ""};
   },
 
   // If the component updates we'll run this code
@@ -70,7 +70,9 @@ var Main = React.createClass({
         {/* New Component called History to show search history */}
         <div className="row">
           <div className="col-md-12">
-            <History/>
+            <History
+              searchTerm={this.state.searchTerm}
+            />
           </div>
         </div>
       </div>
