@@ -2,10 +2,20 @@
 var React = require("react");
 
 var History = React.createClass({
-	getInitialSate: function() {
-		return { dateTime: };
+	getInitialState: function() {
+		return { 
+			dateTime: Date.now(),
+			searchTerms: ["Los Angeles"]
+		};
 	},
+	componentWillReceiveProps: function(nextProps) {
+		let searchTerms = this.state.searchTerms;
+		searchTerms.push(nextProps.searchTerm);
 
+		this.setState({
+			searchTerms
+		});
+	},
 	render: function() {
 		return (
 			<div className="panel panel-default">
@@ -15,8 +25,8 @@ var History = React.createClass({
 				<div className="panel-body text-center">
 					<p>Search History Shows Here</p>
 					<span>
-						<p>{this.props.searchTerm}</p>
-						{/*<p>{this.state.dateTime}</p>*/}
+						<p>{this.state.searchTerms}</p>
+						<p>{this.state.dateTime}</p>
 					</span>
 				</div>
 			</div>
